@@ -16,7 +16,7 @@ export default function Calculator() {
     setTip(Val);
   }
   function calc1() {
-    if (billInpVal > 0 && numberPeople > 0 && tip > 0) {
+    if (billInpVal > 0 && numberPeople > 1 && tip > 0) {
       setTotal(
         (billInpVal * 1 + ((billInpVal * tip) / 100) * 1) / numberPeople
       );
@@ -24,7 +24,7 @@ export default function Calculator() {
     return <p className="answer-text">${total.toFixed(2)}</p>;
   }
   function calc2() {
-    if (billInpVal > 0 && numberPeople > 0 && tip > 0) {
+    if (billInpVal > 0 && numberPeople > 1 && tip > 0) {
       setTipAmountAnswer((billInpVal * tip) / 100 / numberPeople);
     }
 
@@ -39,10 +39,13 @@ export default function Calculator() {
   return (
     <MyContext.Provider
       value={{
-        tipAmount: tipAmountAnswer,
-        totalAmount: total,
         calc1: calc1,
         calc2: calc2,
+        resetBill: setBillInpVal,
+        resetTip: setTip,
+        resetNumberPeople: setNumberPeople,
+        resetTipAmountAnswer: setTipAmountAnswer,
+        resetTotal: setTotal,
       }}
     >
       <div className="calc-container">

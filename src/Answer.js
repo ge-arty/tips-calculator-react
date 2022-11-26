@@ -4,6 +4,13 @@ import { useContext } from "react";
 
 export default function Answer() {
   let Answers = useContext(MyContext);
+  function reset() {
+    Answers.resetBill("");
+    Answers.resetTip("");
+    Answers.resetNumberPeople("");
+    Answers.resetTotal(0);
+    Answers.resetTipAmountAnswer(0);
+  }
   return (
     <div className="answer-box">
       <div className="tip-amount-box">
@@ -20,7 +27,9 @@ export default function Answer() {
         </div>
         {Answers.calc1()}
       </div>
-      <button className="reset-btn">Reset</button>
+      <button onClick={reset} className="reset-btn">
+        Reset
+      </button>
     </div>
   );
 }
