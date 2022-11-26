@@ -190,7 +190,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 53px;
+  margin-bottom: 22px;
 }
 .total-amount-box {
   width: 100%;
@@ -198,7 +198,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 134px;
+  margin-bottom: 122px;
 }
 .answer-text {
   color: #26c2ae;
