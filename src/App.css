@@ -274,3 +274,62 @@
 .reset-btn:hover {
   background-color: #9fe8df;
 }
+
+@media (max-width: 480px) {
+  .app {
+    max-width: 1440px;
+    width: 100%;
+    background-color: #c5e4e7;
+    padding-top: 50px;
+    padding-bottom: 0;
+  }
+  .title-icon {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 40.86px;
+  }
+  .calc-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 920px;
+    background-color: #fff;
+    margin: 0 auto;
+    border-radius: 0;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    column-gap: 48px;
+    flex-wrap: wrap;
+    padding: 0 24px;
+    padding-bottom: 32px;
+  }
+  .info-box {
+    width: 100%;
+    max-width: 379px;
+  }
+  .answer-box {
+    width: 100%;
+    max-width: 413px;
+    padding: 24px;
+    background-color: #00474b;
+    border-radius: 15px;
+    font-family: "Space Mono";
+  }
+  .tip-amount-box {
+    width: 100%;
+    max-width: 333px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 21px;
+  }
+  .total-amount-box {
+    width: 100%;
+    max-width: 333px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 33px;
+  }
+}
