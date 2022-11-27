@@ -13,6 +13,7 @@ export default function NumberPeople(props) {
           alt="number-people-icon"
         />
         <input
+          id={props.id}
           className={props.className}
           onChange={props.NumberPpl}
           value={props.value}

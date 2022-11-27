@@ -43,6 +43,7 @@
   font-weight: 700;
   height: 24px;
   margin-bottom: 6px;
+  font-family: "Space Mono";
 }
 .bill-input-box {
   max-width: 379px;
@@ -67,6 +68,7 @@
   text-align: right;
   padding-right: 16px;
   cursor: pointer;
+  font-family: "Space Mono";
 }
 .bill-input:focus {
   border: 2px solid #26c2ae;
@@ -90,6 +92,7 @@
   font-weight: 700;
   height: 24px;
   margin-bottom: 16px;
+  font-family: "Space Mono";
 }
 .select-tip-button-box {
   display: flex;
@@ -110,6 +113,7 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-family: "Space Mono";
 }
 #active {
   background-color: #9fe8df;
@@ -127,6 +131,7 @@
   border-radius: 5px;
   text-align: center;
   cursor: pointer;
+  font-family: "Space Mono";
 }
 .tip-input:focus {
   border: 2px solid #26c2ae;
@@ -146,6 +151,7 @@
   line-height: 23.7px;
   font-weight: 700;
   margin-bottom: 6px;
+  font-family: "Space Mono";
 }
 .red-border-text {
   position: absolute;
@@ -177,23 +183,10 @@
   font-weight: 700;
   padding-right: 16px;
   cursor: pointer;
+  font-family: "Space Mono";
 }
-.number-people-input2 {
-  background-color: #f3f9fa;
-  border-radius: 5px;
-  display: block;
-  width: 100%;
-  max-width: 379px;
-  border: 2px solid #e17052;
-  outline: none;
-  color: #00474b;
-  height: 100%;
-  text-align: right;
-  font-size: 24px;
-  line-height: 35.54px;
-  font-weight: 700;
-  padding-right: 16px;
-  cursor: pointer;
+#number-people-input2 {
+  border: 2px solid #e17457;
 }
 .number-people-input:focus {
   border: 2px solid #26c2ae;
@@ -209,6 +202,7 @@
   padding: 40px;
   background-color: #00474b;
   border-radius: 15px;
+  font-family: "Space Mono";
 }
 .tip-amount-box {
   width: 100%;
@@ -244,7 +238,8 @@
   font-size: 13px;
   color: #7f9d9f;
 }
-.reset-btn {
+
+#reset-btnID {
   width: 100%;
   max-width: 333px;
   height: 48px;
@@ -258,6 +253,23 @@
   text-transform: uppercase;
   cursor: pointer;
   text-align: center;
+  font-family: "Space Mono";
+}
+.reset-btn {
+  width: 100%;
+  max-width: 333px;
+  height: 48px;
+  background: #0d686d;
+  border-radius: 5px;
+  border: none;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 29.62px;
+  color: #00474b;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+  font-family: "Space Mono";
 }
 .reset-btn:hover {
   background-color: #9fe8df;

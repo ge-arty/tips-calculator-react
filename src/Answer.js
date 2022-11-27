@@ -11,7 +11,7 @@ export default function Answer() {
   const [counter, setCounter] = useState(0);
   // ------ Calculations
   if (
-    counter < 1 &&
+    counter < 10 &&
     Answers.billInpVal > 0 &&
     Answers.numberPeople > 1 &&
     Answers.tip > 0
@@ -34,6 +34,7 @@ export default function Answer() {
     Answers.resetNumberPeople("");
     setTotal(0);
     setTipAmountAnswer(0);
+    setCounter(0);
   }
   return (
     <div className="answer-box">
@@ -51,7 +52,11 @@ export default function Answer() {
         </div>
         <p className="answer-text">${total.toFixed(2)}</p>
       </div>
-      <button onClick={reset} className="reset-btn">
+      <button
+        onClick={reset}
+        id={total > 0 && tipAmountAnswer > 0 ? "reset-btnID" : ""}
+        className="reset-btn"
+      >
         Reset
       </button>
     </div>

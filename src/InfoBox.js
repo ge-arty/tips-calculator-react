@@ -13,6 +13,11 @@ export default function InfoBox(props) {
         click={props.click}
       />
       <NumberPeople
+        id={
+          props.billInpVal > 0 && props.tip > 0 && props.numberPeople < 1
+            ? "number-people-input2"
+            : ""
+        }
         className={props.className}
         redBorderFunc={props.redBorderFunc}
         value={props.numberPeople}
