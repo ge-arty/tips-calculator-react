@@ -1,15 +1,39 @@
 import React from "react";
 import { MyContext } from "./Context";
 import { useContext } from "react";
+import { useState } from "react";
 
 export default function Answer() {
   let Answers = useContext(MyContext);
+  // -------------------Answer Variables
+  const [tipAmountAnswer, setTipAmountAnswer] = useState(0);
+  const [total, setTotal] = useState(0);
+  const [counter, setCounter] = useState(0);
+  // ------ Calculations
+  if (
+    counter < 1 &&
+    Answers.billInpVal > 0 &&
+    Answers.numberPeople > 1 &&
+    Answers.tip > 0
+  ) {
+    setCounter(counter + 1);
+    setTipAmountAnswer(
+      (Answers.billInpVal * Answers.tip) / 100 / Answers.numberPeople
+    );
+    setTotal(
+      (Answers.billInpVal * 1 +
+        ((Answers.billInpVal * Answers.tip) / 100) * 1) /
+        Answers.numberPeople
+    );
+  }
+
+  // --------Reset Function
   function reset() {
     Answers.resetBill("");
     Answers.resetTip("");
     Answers.resetNumberPeople("");
-    Answers.resetTotal(0);
-    Answers.resetTipAmountAnswer(0);
+    setTotal(0);
+    setTipAmountAnswer(0);
   }
   return (
     <div className="answer-box">
@@ -18,14 +42,14 @@ export default function Answer() {
           <p className="answer-value">Tip Amount</p>
           <p className="person-text">/ person</p>
         </div>
-        {Answers.calc2()}
+        <p className="answer-text">${tipAmountAnswer.toFixed(2)}</p>
       </div>
       <div className="total-amount-box">
         <div className="total-text-box">
           <p className="answer-value">Total</p>
           <p className="person-text">/ person</p>
         </div>
-        {Answers.calc1()}
+        <p className="answer-text">${total.toFixed(2)}</p>
       </div>
       <button onClick={reset} className="reset-btn">
         Reset

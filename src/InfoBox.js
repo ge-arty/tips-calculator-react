@@ -12,7 +12,12 @@ export default function InfoBox(props) {
         tip={props.tip}
         click={props.click}
       />
-      <NumberPeople value={props.numberPeople} NumberPpl={props.NumberPpl} />
+      <NumberPeople
+        className={props.className}
+        redBorderFunc={props.redBorderFunc}
+        value={props.numberPeople}
+        NumberPpl={props.NumberPpl}
+      />
     </div>
   );
 }

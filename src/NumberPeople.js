@@ -4,6 +4,7 @@ import icon from "./images/Combined Shape.png";
 export default function NumberPeople(props) {
   return (
     <div className="number-people-container">
+      {props.redBorderFunc()}
       <p className="number-people-text">Number People</p>
       <div className="number-people-input-box">
         <img
@@ -12,7 +13,7 @@ export default function NumberPeople(props) {
           alt="number-people-icon"
         />
         <input
-          className="number-people-input"
+          className={props.className}
           onChange={props.NumberPpl}
           value={props.value}
           type="text"

@@ -4,34 +4,26 @@ import InfoBox from "./InfoBox";
 import { useState } from "react";
 
 export default function Calculator() {
+  // ----------Input Variables
   const [billInpVal, setBillInpVal] = useState("");
   const [numberPeople, setNumberPeople] = useState("");
   const [tip, setTip] = useState("");
-  const [tipAmountAnswer, setTipAmountAnswer] = useState(0);
-  const [total, setTotal] = useState(0);
-  function changeCustom(event) {
-    setTip(event.target.value);
+  // -----------Can't be zero TEXT
+  function redBorderFunc() {
+    if (billInpVal > 0 && tip > 0 && numberPeople < 1) {
+      return <p className="red-border-text">Can't be Zero</p>;
+    }
   }
+  // ---------Click Function
   function click(Val) {
     setTip(Val);
   }
-  function calc1() {
-    if (billInpVal > 0 && numberPeople > 1 && tip > 0) {
-      setTotal(
-        (billInpVal * 1 + ((billInpVal * tip) / 100) * 1) / numberPeople
-      );
-    }
-    return <p className="answer-text">${total.toFixed(2)}</p>;
-  }
-  function calc2() {
-    if (billInpVal > 0 && numberPeople > 1 && tip > 0) {
-      setTipAmountAnswer((billInpVal * tip) / 100 / numberPeople);
-    }
-
-    return <p className="answer-text">${tipAmountAnswer.toFixed(2)}</p>;
-  }
+  // -------input targer values
   function billChange(event) {
     setBillInpVal(event.target.value);
+  }
+  function changeCustom(event) {
+    setTip(event.target.value);
   }
   function NumberPpl(event) {
     setNumberPeople(event.target.value);
@@ -39,17 +31,17 @@ export default function Calculator() {
   return (
     <MyContext.Provider
       value={{
-        calc1: calc1,
-        calc2: calc2,
+        billInpVal: billInpVal,
+        numberPeople: numberPeople,
+        tip: tip,
         resetBill: setBillInpVal,
         resetTip: setTip,
         resetNumberPeople: setNumberPeople,
-        resetTipAmountAnswer: setTipAmountAnswer,
-        resetTotal: setTotal,
       }}
     >
       <div className="calc-container">
         <InfoBox
+          className={"number-people-input"}
           billInpVal={billInpVal}
           billChange={billChange}
           numberPeople={numberPeople}
@@ -58,6 +50,7 @@ export default function Calculator() {
           tip={tip}
           changeCustom={changeCustom}
           value={tip}
+          redBorderFunc={redBorderFunc}
         />
         <Answer />
       </div>
