@@ -1,31 +1,30 @@
 import React from "react";
 import { MyContext } from "./Context";
 import { useContext } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Answer() {
   let Answers = useContext(MyContext);
   // -------------------Answer Variables
   const [tipAmountAnswer, setTipAmountAnswer] = useState(0);
   const [total, setTotal] = useState(0);
-  const [counter, setCounter] = useState(0);
+  // const [counter, setCounter] = useState(0);
   // ------ Calculations
-  if (
-    counter < 10 &&
-    Answers.billInpVal > 0 &&
-    Answers.numberPeople > 1 &&
-    Answers.tip > 0
-  ) {
-    setCounter(counter + 1);
-    setTipAmountAnswer(
-      (Answers.billInpVal * Answers.tip) / 100 / Answers.numberPeople
-    );
-    setTotal(
-      (Answers.billInpVal * 1 +
-        ((Answers.billInpVal * Answers.tip) / 100) * 1) /
-        Answers.numberPeople
-    );
+  function Calculate() {
+    if (Answers.billInpVal > 0 && Answers.numberPeople > 1 && Answers.tip > 0) {
+      setTipAmountAnswer(
+        (Answers.billInpVal * Answers.tip) / 100 / Answers.numberPeople
+      );
+      setTotal(
+        (Answers.billInpVal * 1 +
+          ((Answers.billInpVal * Answers.tip) / 100) * 1) /
+          Answers.numberPeople
+      );
+    }
   }
+  useEffect(() => {
+    Calculate();
+  });
 
   // --------Reset Function
   function reset() {
@@ -34,7 +33,6 @@ export default function Answer() {
     Answers.resetNumberPeople("");
     setTotal(0);
     setTipAmountAnswer(0);
-    setCounter(0);
   }
   return (
     <div className="answer-box">

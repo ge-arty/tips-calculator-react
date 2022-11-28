@@ -10,7 +10,12 @@ export default function Calculator() {
   const [tip, setTip] = useState("");
   // -----------Can't be zero TEXT
   function redBorderFunc() {
-    if (billInpVal > 0 && tip > 0 && numberPeople < 1) {
+    if (numberPeople < 1) {
+      return <p className="red-border-text">Can't be Zero</p>;
+    }
+  }
+  function redBorderFunc2() {
+    if (billInpVal == 0) {
       return <p className="red-border-text">Can't be Zero</p>;
     }
   }
@@ -18,15 +23,24 @@ export default function Calculator() {
   function click(Val) {
     setTip(Val);
   }
-  // -------input targer values
+  // -------input target values
   function billChange(event) {
-    setBillInpVal(event.target.value);
+    if (event.target.value < 0) {
+      setBillInpVal(0);
+    } else {
+      setBillInpVal(event.target.value);
+    }
   }
   function changeCustom(event) {
     setTip(event.target.value);
   }
   function NumberPpl(event) {
     setNumberPeople(event.target.value);
+    if (event.target.value < 1) {
+      setNumberPeople(0);
+    } else {
+      setNumberPeople(event.target.value);
+    }
   }
   return (
     <MyContext.Provider
@@ -41,6 +55,7 @@ export default function Calculator() {
     >
       <div className="calc-container">
         <InfoBox
+          redBorderFunc2={redBorderFunc2}
           className={"number-people-input"}
           billInpVal={billInpVal}
           billChange={billChange}

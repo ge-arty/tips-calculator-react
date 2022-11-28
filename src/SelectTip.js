@@ -18,6 +18,7 @@ export default function SelectTip(props) {
           );
         })}
         <input
+          id={props.id}
           value={props.value}
           onChange={props.changeCustom}
           placeholder="Custom"

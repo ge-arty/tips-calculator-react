@@ -35,6 +35,7 @@
   align-items: center;
   max-width: 379px;
   height: 78px;
+  position: relative;
 }
 .bill-title {
   color: #5e7a7d;
