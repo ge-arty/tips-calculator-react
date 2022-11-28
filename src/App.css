@@ -1,6 +1,7 @@
 .app {
   max-width: 1440px;
   width: 100%;
+  margin: 0 auto;
   background-color: #c5e4e7;
   padding-top: 163px;
   padding-bottom: 239px;
