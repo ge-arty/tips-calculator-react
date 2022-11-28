@@ -7,7 +7,7 @@ export default function Calculator() {
   // ----------Input Variables
   const [billInpVal, setBillInpVal] = useState("");
   const [numberPeople, setNumberPeople] = useState("");
-  const [tip, setTip] = useState("");
+  const [tip, setTip] = useState(0);
   // -----------Can't be zero TEXT
   function redBorderFunc() {
     if (numberPeople < 1) {
@@ -32,14 +32,18 @@ export default function Calculator() {
     }
   }
   function changeCustom(event) {
-    setTip(event.target.value);
+    if (event.target.value == 0 || event.target.value < 1) {
+      setTip(1);
+    } else {
+      setTip(Math.floor(event.target.value));
+    }
   }
   function NumberPpl(event) {
     setNumberPeople(event.target.value);
     if (event.target.value < 1) {
       setNumberPeople(0);
     } else {
-      setNumberPeople(event.target.value);
+      setNumberPeople(Math.floor(event.target.value));
     }
   }
   return (
