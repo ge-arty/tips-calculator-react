@@ -273,7 +273,7 @@
   text-align: center;
   font-family: "Space Mono";
 }
-.reset-btn:hover {
+#reset-btnID:hover {
   background-color: #9fe8df;
 }
 
