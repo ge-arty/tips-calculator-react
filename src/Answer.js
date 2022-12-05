@@ -11,7 +11,11 @@ export default function Answer() {
   // const [counter, setCounter] = useState(0);
   // ------ Calculations
   function Calculate() {
-    if (Answers.billInpVal > 0 && Answers.numberPeople > 1 && Answers.tip > 0) {
+    if (
+      Answers.billInpVal > 0 &&
+      Answers.numberPeople >= 1 &&
+      Answers.tip > 0
+    ) {
       setTipAmountAnswer(
         (Answers.billInpVal * Answers.tip) / 100 / Answers.numberPeople
       );
